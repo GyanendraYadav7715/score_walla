@@ -5,7 +5,8 @@ export default function Index() {
     <View
       className="flex-1 items-center justify-center"
     >
-      <Text className="text-yellow-700 font-bold text-3xl">Gyanendra Yadav</Text>
+      <Text className="text-primary font-bold text-3xl">Gyanendra Yadav</Text>
+    
     </View>
   );
 }
