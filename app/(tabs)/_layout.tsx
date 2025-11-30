@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import { Ionicons,} from "@expo/vector-icons";
-import { Image } from "react-native";
+import { Image } from "expo-image";
 
 export default function Layout() {
   return (
@@ -80,9 +80,9 @@ export default function Layout() {
             <Image
               source={{ uri: "https://i.pravatar.cc/100" }}
               style={{
-                width: 28,
-                height: 28,
-                borderRadius: 14,
+                width: 33,
+                height: 33,
+                borderRadius: 18,
                 borderWidth: focused ? 2 : 0,
                 borderColor: "#000",
               }}

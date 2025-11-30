@@ -7,9 +7,9 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import { Ionicons } from "@expo/vector-icons";
 
-const EditProfile = ({ navigation }) => {
+const EditProfile = ({ navigation }: { navigation: any }) => {
   const [name, setName] = useState("Gyanendra Yadav");
   const [username, setUsername] = useState("codeaura108");
   const [bio, setBio] = useState("I am the all rounder programmer. goodbye");
