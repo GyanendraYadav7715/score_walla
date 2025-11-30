@@ -1,103 +1,95 @@
 import { Tabs } from "expo-router";
-import { images } from "@/constants/images";
-import { ImageBackground, Text, Image } from "react-native";
-import { icons } from "@/constants/icons";
+import { Ionicons,} from "@expo/vector-icons";
+import { Image } from "react-native";
 
-const _layout = () => {
+export default function Layout() {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          height: 60,
+          borderTopWidth: 0.5,
+          borderTopColor: "#ddd",
+          backgroundColor: "#fff",
+        },
+      }}
+    >
+      {/* Home */}
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
-          headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <>
-              <ImageBackground
-                source={images.highlight}
-                className="flex flex-row w-full flex-1 min-w-[112px] min-h-14 mt-4 justify-center items-center rounded-full overflow-hidden"
-              >
-                <Image
-                  source={icons.home}
-                  tintColor="#151312"
-                  className="size-5"
-                />
-                <Text>Home</Text>
-              </ImageBackground>
-            </>
+            <Ionicons
+              name={focused ? "home" : "home-outline"}
+              size={26}
+              color={focused ? "#000" : "#777"}
+            />
           ),
         }}
       />
+
+      {/* Reels / Videos */}
       <Tabs.Screen
-        name="search"
+        name="reels"
         options={{
-          title: "Search",
-          headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <>
-              <ImageBackground
-                 
-                className="flex flex-row w-full flex-1 min-w-[112px] min-h-14 mt-4 justify-center items-center rounded-full overflow-hidden"
-              >
-                <Image
-                  source={icons.search}
-                  tintColor="#151312"
-                  className="size-5"
-                />
-                <Text>Search</Text>
-              </ImageBackground>
-            </>
+            <Ionicons
+              name={focused ? "grid" : "grid-outline"}
+              size={26}
+              color={focused ? "#000" : "#777"}
+            />
           ),
         }}
       />
+
+      {/* Create Post (Center button) */}
+      <Tabs.Screen
+        name="create"
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "chatbox" : "chatbox-outline"}
+              size={30}
+              color="#000"
+            />
+          ),
+        }}
+      />
+
+      {/* Activity */}
+      <Tabs.Screen
+        name="activity"
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? "search" : "search-outline"}
+              size={26}
+              color={focused ? "#000" : "#777"}
+            />
+          ),
+        }}
+      />
+
+      {/* Profile */}
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Profile",
-         
-          headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <>
-              <ImageBackground
-                 
-                className="flex flex-row w-full flex-1 min-w-[112px] min-h-14 mt-4 justify-center items-center rounded-full overflow-hidden"
-              >
-                <Image
-                  source={icons.person}
-                  tintColor="#151312"
-                  className="size-5"
-                />
-                <Text>Profile</Text>
-              </ImageBackground>
-            </>
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="saved"
-        options={{
-          title: "Saved",
-          tabBarLabel: "Saved",
-          headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <>
-              <ImageBackground
-                 
-                className="flex flex-row w-full flex-1 min-w-[112px] min-h-14 mt-4 justify-center items-center rounded-full overflow-hidden"
-              >
-                <Image
-                  source={icons.save}
-                  tintColor="#151312"
-                  className="size-5"
-                />
-                <Text>Saved</Text>
-              </ImageBackground>
-            </>
+            <Image
+              source={{ uri: "https://i.pravatar.cc/100" }}
+              style={{
+                width: 28,
+                height: 28,
+                borderRadius: 14,
+                borderWidth: focused ? 2 : 0,
+                borderColor: "#000",
+              }}
+            />
           ),
         }}
       />
     </Tabs>
   );
-};
-
-export default _layout;
+}
